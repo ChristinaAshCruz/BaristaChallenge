@@ -39,4 +39,15 @@ public class Order {
     public void setOrder(ArrayList<Object> orderItems){
         items = orderItems;
     }
+
+    // class methods
+    public String getStatusMessage(){
+        if (getOrderStatus() == true){
+            return "Your order is ready";
+        }
+        else {
+            return "Thank you for waiting. Your order will be ready soon.";
+        }
+    }
+
 }
