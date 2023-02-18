@@ -1,3 +1,4 @@
+// import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Order {
@@ -6,13 +7,13 @@ public class Order {
     private ArrayList<Item> items;
 
     public Order(){
-        this("Guest", false, null);
+        this.name = "Guest";
+        this.items = new ArrayList<Item>();
     }
 
-    public Order(String name, boolean ready, ArrayList<Item> items){
+    public Order(String name){
         this.name = name;
-        this.ready = ready;
-        this.items = items;
+        this.items = new ArrayList<Item>();
     }
 
     // getters and setters
@@ -60,5 +61,13 @@ public class Order {
             total += item.getItemPrice();
         }
         return total;
+    }
+
+    public void display(){
+        System.out.println("Customer Name: " + name);
+        for (Item item: items){
+            System.out.println(item.getItemName() + "-" + item.getItemPrice());
+        }
+        System.out.println("Total: " + getOrderTotal());
     }
 }
