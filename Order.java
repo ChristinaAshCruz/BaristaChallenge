@@ -1,4 +1,3 @@
-// import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Order {
@@ -66,8 +65,10 @@ public class Order {
     public void display(){
         System.out.println("Customer Name: " + name);
         for (Item item: items){
-            System.out.println(item.getItemName() + "-" + item.getItemPrice());
+            String displayMessage = String.format("%s - $%.2f", item.getItemName(), item.getItemPrice());
+            System.out.println(displayMessage);
         }
-        System.out.println("Total: " + getOrderTotal());
+        String totalMessage = String.format("Total: $%.2f", getOrderTotal());
+        System.out.println(totalMessage);
     }
 }
